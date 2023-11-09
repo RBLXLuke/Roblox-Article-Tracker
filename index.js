@@ -1,6 +1,7 @@
 const axios = require('axios');
 const fs = require('fs');
 const path = require('path');
+const { execSync } = require('child_process');
 
 const apiUrl = 'https://translations.roblox.com';
 const folderPath = 'C:\\Users\\lukec\\Downloads\\Translations\\translations'; // Change this to your folder path
@@ -25,6 +26,9 @@ async function fetchDataAndSave() {
       // Update the JSON file with the new data
       updateJsonFile(newData);
       console.log('Data updated and saved to', jsonFilePath);
+
+      // Commit changes to Git
+      gitCommit();
     } else {
       console.log('No changes detected.');
     }
@@ -37,7 +41,7 @@ async function fetchDataAndSave() {
 function hasDataChanged(newData) {
   try {
     // Read the existing JSON file
-    const existingData = readJsonFile();
+    const existingData = JSON.parse(fs.readFileSync(jsonFilePath, 'utf-8'));
 
     // Compare data (you may need to customize this based on the API response structure)
     return JSON.stringify(existingData) !== JSON.stringify(newData);
@@ -45,26 +49,6 @@ function hasDataChanged(newData) {
     // Handle file reading or parsing errors
     console.error('Error reading existing data:', error.message);
     return false;
-  }
-}
-
-// Function to read JSON data from a file
-function readJsonFile() {
-  try {
-    const data = fs.readFileSync(jsonFilePath, 'utf-8');
-    return JSON.parse(data);
-  } catch (error) {
-    // Handle the case where the file is empty or does not exist
-    if (error.code === 'ENOENT') {
-      // File does not exist, return an empty object
-      return {};
-    } else if (error instanceof SyntaxError) {
-      // JSON parsing error, return an empty object
-      return {};
-    } else {
-      // Handle other errors
-      throw error;
-    }
   }
 }
 
@@ -79,9 +63,25 @@ function updateJsonFile(newData) {
   }
 }
 
+// Function to commit changes to Git
+function gitCommit() {
+  try {
+    // Stage changes
+    execSync(`git -C ${folderPath} add ${jsonFileName}`);
+    // Commit changes
+    execSync(`git -C ${folderPath} commit -m "Update translations"`);
+    // Push changes to GitHub (replace origin and branch with your repository details)
+    execSync(`git -C ${folderPath} push origin main`);
+    console.log('Changes committed to GitHub.');
+  } catch (error) {
+    console.error('Error committing changes to GitHub:', error.message);
+  }
+}
+
 // Interval for fetching and checking data (every 1 hour in this example)
 const fetchInterval = 60 * 60 * 1000; // 1 hour in milliseconds
 setInterval(fetchDataAndSave, fetchInterval);
 
 // Initial fetch and save on script start
 fetchDataAndSave();
+
