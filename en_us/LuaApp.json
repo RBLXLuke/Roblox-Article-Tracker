@@ -12347,8 +12347,8 @@
     "namespace": "Feature.Avatar",
     "key": "Description.LiveHeadsSplashScreenDescription",
     "description": "The description we show to users describing what dynamic heads are.",
-    "english": "Equip our new Live Heads to enable immersive Avatar facial expressions  on compatible experiences. ",
-    "translation": "Equip our new Live Heads to enable immersive Avatar facial expressions  on compatible experiences. ",
+    "english": "Equip our new Live Heads to enable immersive Avatar facial expressions on compatible experiences. ",
+    "translation": "Equip our new Live Heads to enable immersive Avatar facial expressions on compatible experiences. ",
     "isDeprecated": false
   },
   {
