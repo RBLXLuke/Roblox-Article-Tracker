@@ -1739,8 +1739,8 @@
     "namespace": "CoreScripts.PurchasePrompt",
     "key": "PurchaseDetails.ScaryModalOne",
     "description": "Shown to users under 13 when they hit the first purchase threshold.",
-    "english": "This purchase involves the exchange of real money.   I agree that I am at least 18 years of age, and am the parent or legal guardian of the account owner. I authorize this purchase and agree to the Terms of Use.",
-    "translation": "This purchase involves the exchange of real money.   I agree that I am at least 18 years of age, and am the parent or legal guardian of the account owner. I authorize this purchase and agree to the Terms of Use.",
+    "english": "This purchase involves the exchange of real money. I agree that I am at least 18 years of age, and am the parent or legal guardian of the account owner. I authorize this purchase and agree to the Terms of Use.",
+    "translation": "This purchase involves the exchange of real money. I agree that I am at least 18 years of age, and am the parent or legal guardian of the account owner. I authorize this purchase and agree to the Terms of Use.",
     "isDeprecated": false
   },
   {
