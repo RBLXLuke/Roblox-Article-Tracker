@@ -14019,10 +14019,20 @@
     "namespace": "Feature.SettingsHub",
     "key": "Label.FriendsListLoadErrorMessage",
     "description": null,
-    "english": "Can’t load friends. Try again later.",
-    "translation": "Can’t load friends. Try again later.",
+    "english": "Can't load friends. Try again later.",
+    "translation": "Can't load friends. Try again later.",
     "isDeprecated": false
   },
+
+  {
+    "namespace": "Feature.SettingsHub",
+    "key": "Description.ChatWithVoiceDisabledUntil",
+    "description": null,
+    "english": "Your access to chat with voice has been disabled until {dateTime} due to behavior that may violate our Community Standards.",
+    "translation": "Your access to chat with voice has been disabled until {dateTime} due to behavior that may violate our Community Standards.",
+    "isDeprecated": false
+  },
+
   {
     "namespace": "InGame.CommonUI",
     "key": "Label.FAQWebviewTitle",
